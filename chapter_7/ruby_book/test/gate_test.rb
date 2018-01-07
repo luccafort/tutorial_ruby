@@ -3,7 +3,7 @@ require_relative '../lib/gate'
 require_relative '../lib/ticket'
 
 class GateTest < Minitest::Test
-    def test_gate
+    def test_umeda_to_juso
         # 150円の切符購入
         # 梅田で入場、十三で出場
         # 期待値: 出場できる
