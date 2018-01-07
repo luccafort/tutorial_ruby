@@ -13,4 +13,16 @@ class GateTest < Minitest::Test
         umeda.enter(ticket)
         assert juso.exit(ticket)
     end
+
+    def test_umeda_to_mikuni_when_fare_is_not_enough
+        # 150円の切符購入(本来の運賃は190円)
+        # 梅田で入場、三国で出場
+        # 期待値: 出場できない(運賃不足)
+        umeda = Gate.new(:umeda)
+        mikuni = Gate.new(:mikuni)
+        
+        ticket = Ticket.new(150)
+        umeda.enter(ticket)
+        refute mikuni.exit(ticket)
+    end
 end
