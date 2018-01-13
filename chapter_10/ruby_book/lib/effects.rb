@@ -13,6 +13,7 @@ module Effects
         end
     end
 
+    # 大文字化+!の付与
     def self.loud(level)
         ->(words) do
             words.split(' ').map {|word| word.upcase + '!' * level}.join(' ')
