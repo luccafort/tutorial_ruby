@@ -1,5 +1,15 @@
 class WordSynth
-    def play(original_word)
-        # 仮実装
+    def initialize
+        @effects = []
+    end
+
+    def add_effect(effect)
+        @effects << effect
+    end
+
+    def play(original_words)
+        @effects.reduce(original_words) do |words, effect|
+            effect.call(words)
+        end
     end
 end
